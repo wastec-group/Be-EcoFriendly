@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL || 'https://beecofriendly.onrender.com/api';
 console.log('Current API URL:', apiUrl);
 
 const api = axios.create({
