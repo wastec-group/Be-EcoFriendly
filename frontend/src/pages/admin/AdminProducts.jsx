@@ -11,6 +11,7 @@ import Loading from '../../components/common/Loading';
 import ProductImage from '../../components/product/ProductImage';
 import BulkUploadModal from '../../components/admin/BulkUploadModal';
 import { PRODUCT_CATEGORIES } from '../../utils/constants';
+import EcoImpactForm from '../../components/admin/EcoImpactForm';
 
 const AdminProducts = () => {
   const [showModal, setShowModal] = useState(false);
@@ -29,7 +30,23 @@ const AdminProducts = () => {
     stock: '',
     featured: false,
     tags: '',
-    images: []
+    images: [],
+    features: {
+      ecoScore: 0,
+      ecoDetails: {
+        sustainabilityAnswers: {},
+        lifecycleAnswers: {},
+        materialComposition: { sustainablePercentage: 0 }
+      },
+      lifeCycleAnalysis: {
+        rawMaterials: 0,
+        manufacturing: 0,
+        transportation: 0,
+        usage: 0,
+        disposal: 0,
+        totalCO2: 0
+      }
+    }
   });
   const [imagePreview, setImagePreview] = useState([]);
   const [uploading, setUploading] = useState(false);
@@ -161,7 +178,23 @@ const AdminProducts = () => {
       stock: product.stock,
       featured: product.featured,
       tags: product.tags?.join(', ') || '',
-      images: product.images || []
+      images: product.images || [],
+      features: product.features || {
+        ecoScore: 0,
+        ecoDetails: {
+          sustainabilityAnswers: {},
+          lifecycleAnswers: {},
+          materialComposition: { sustainablePercentage: 0 }
+        },
+        lifeCycleAnalysis: {
+          rawMaterials: 0,
+          manufacturing: 0,
+          transportation: 0,
+          usage: 0,
+          disposal: 0,
+          totalCO2: 0
+        }
+      }
     });
     setImagePreview(product.images?.map(img => img.url) || []);
     setShowModal(true);
@@ -177,7 +210,23 @@ const AdminProducts = () => {
       stock: '',
       featured: false,
       tags: '',
-      images: []
+       images: [],
+      features: {
+        ecoScore: 0,
+        ecoDetails: {
+          sustainabilityAnswers: {},
+          lifecycleAnswers: {},
+          materialComposition: { sustainablePercentage: 0 }
+        },
+        lifeCycleAnalysis: {
+          rawMaterials: 0,
+          manufacturing: 0,
+          transportation: 0,
+          usage: 0,
+          disposal: 0,
+          totalCO2: 0
+        }
+      }
     });
     setImagePreview([]);
     setEditingProduct(null);
@@ -472,36 +521,10 @@ const AdminProducts = () => {
                     />
                   </div>
 
-                  {/* Ecological Impact (LCA) Section */}
-                  <div className="p-6 bg-mint/10 border border-primary/20 rounded-[2rem] space-y-6">
-                    <div className="flex items-center gap-3 mb-2">
-                       <Leaf className="h-5 w-5 text-primary" />
-                       <h3 className="font-black text-gray-900 uppercase tracking-widest text-sm">Life Cycle Analysis (CO2e)</h3>
-                    </div>
-                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                       {[
-                         { label: 'Raw Materials', key: 'rawMaterials' },
-                         { label: 'Manufacturing', key: 'manufacturing' },
-                         { label: 'Transportation', key: 'transportation' },
-                         { label: 'Usage', key: 'usage' },
-                         { label: 'Disposal', key: 'disposal' }
-                       ].map(field => (
-                         <div key={field.key}>
-                           <label className="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1.5">{field.label}</label>
-                           <input
-                             type="number"
-                             step="0.01"
-                             className="w-full px-4 py-2 bg-white border border-gray-100 rounded-xl focus:ring-1 focus:ring-primary font-bold text-sm"
-                             value={formData.lca?.[field.key] || 0}
-                             onChange={(e) => setFormData({
-                               ...formData,
-                               lca: { ...(formData.lca || {}), [field.key]: parseFloat(e.target.value) || 0 }
-                             })}
-                           />
-                         </div>
-                       ))}
-                    </div>
-                  </div>
+                  <EcoImpactForm 
+                    data={formData} 
+                    onChange={setFormData} 
+                  />
 
                   <div>
                     <label className="block text-sm font-bold text-gray-700 mb-2">Product Images</label>
