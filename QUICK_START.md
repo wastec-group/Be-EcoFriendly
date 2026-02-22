@@ -243,11 +243,13 @@ npm install
 
 ### Daily Development
 1. **Start MongoDB** (if local)
+
 2. **Terminal 1 - Backend:**
    ```bash
    cd backend
    npm run dev
    ```
+   
 3. **Terminal 2 - Frontend:**
    ```bash
    cd frontend
