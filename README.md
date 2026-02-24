@@ -10,7 +10,7 @@ A modern, full-stack e-commerce platform for sustainable and eco-friendly produc
 ### Customer Features
 - 🛍️ **Product Browsing** - Search, filter, and browse eco-friendly products
 - 🛒 **Shopping Cart** - Add, remove, and manage cart items
-- ❤️ **Wishlist** - Save favorite products
+- ❤️ **Wishlist** - Save your favorite products
 - 🔐 **Authentication** - Secure login/signup with Supabase
 - 📦 **Order Management** - Place and track orders
 - ⭐ **Product Reviews** - Rate and review products
@@ -373,5 +373,6 @@ This project is licensed under the ISC License.
 ---
 
 **Made with 💚 for a sustainable future**
-#   E c o - f r i e n d l y -  
+#   E c o - f r i e n d l y - 
+ 
  
