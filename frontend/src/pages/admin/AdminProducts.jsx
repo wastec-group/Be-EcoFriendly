@@ -210,7 +210,7 @@ const AdminProducts = () => {
       stock: '',
       featured: false,
       tags: '',
-       images: [],
+      images: [],
       features: {
         ecoScore: 0,
         ecoDetails: {
@@ -429,7 +429,7 @@ const AdminProducts = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col"
+              className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col"
             >
               <div className="px-8 py-6 border-b border-gray-100 flex items-center justify-between">
                 <h2 className="text-2xl font-bold text-gray-900">
@@ -521,6 +521,7 @@ const AdminProducts = () => {
                     />
                   </div>
 
+                  {/* New Eco Impact Assessment Section */}
                   <EcoImpactForm 
                     data={formData} 
                     onChange={setFormData} 
