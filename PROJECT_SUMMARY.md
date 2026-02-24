@@ -85,7 +85,7 @@
 - [x] ProductCard (with animations, eco-score, ratings)
 
 #### ✓ Pages
-- [x] Home - Hero section, features, featured products
+- [x] Home - Hero section, features and featured products
 - [x] Shop - Product listing with search, filters, sorting, pagination
 - [x] Login - User authentication
 - [x] Register - User registration
