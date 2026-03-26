@@ -5,7 +5,7 @@ console.log('Current API URL:', apiUrl);
 
 const api = axios.create({
   // baseURL: import.meta.env.VITE_API_URL || '/api', // Use environment variable for production
-    baseURL: apiUrl || '/api', // Use environment variable for production
+    baseURL: apiUrl || '/api', 
   headers: {
     'Content-Type': 'application/json',
   },
