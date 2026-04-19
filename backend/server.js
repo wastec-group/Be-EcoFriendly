@@ -60,6 +60,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+
 // Rate limiting
 const apiLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
